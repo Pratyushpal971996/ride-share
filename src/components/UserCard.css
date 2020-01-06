@@ -118,3 +118,8 @@
     flex-direction: column;
     height: 400px;
   }
+
+  .login-register-link {
+    font-size: 15px;
+    margin-left: 20%;
+  }

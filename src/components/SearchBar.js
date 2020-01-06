@@ -10,7 +10,7 @@ class SearchBar extends React.Component {
   }
 
   onFormSubmit = () => {
-    this.props.onSubmit(this.state.source, this.state.destination);
+    this.props.onSubmit(this.state.source.toLowerCase(), this.state.destination.toLowerCase());
   }
 
   render() {

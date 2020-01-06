@@ -126,7 +126,7 @@ export default function SignIn() {
       </div>
       <Grid item>
         <Link to="/login" variant="body2">
-          {"Already have an account? LOGIN NOW"}
+        <div className="login-register-link">{"Already have an account? LOGIN NOW"}</div>
         </Link>
       </Grid>
     </Container>
