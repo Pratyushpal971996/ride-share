@@ -2,6 +2,7 @@ import React from 'react';
 import './UserCard.css';
 import UserCard from './UserCard';
 import Button from '@material-ui/core/Button';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 class UserList extends React.Component {
   state = {
@@ -16,6 +17,12 @@ class UserList extends React.Component {
     this.props.lists.find(obj => obj.id === selectedID).active = true;
     this.setState({ selectedCard: selectedID, disableButton: false });
   }
+
+  confirmRide = () => {
+    var rider = this.props.lists.find(x => x.id === this.state.selectedCard).name;
+    NotificationManager.success(`${rider} is coming to pick you up`, 'RIDE CONFIRMED!');
+  }
+  
   render() {
     const riders = this.props.lists.map((list, index) => {
       return (
@@ -50,11 +57,13 @@ class UserList extends React.Component {
               color="primary"
               className="confirm-button"
               disabled={this.state.disableButton}
+              onClick={this.confirmRide}
             >
               Confirm Ride
         </Button>
           )}
         </div>
+        <NotificationContainer />
       </div>
     );
   }
